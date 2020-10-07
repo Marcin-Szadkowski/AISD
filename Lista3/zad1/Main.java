@@ -1,4 +1,3 @@
-package sortowanie;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -55,12 +54,16 @@ class Main{
             PrintWriter writer;
             try{
                 writer = new PrintWriter(fileName, "UTF-8");
-                writer.println("n:\t c:\t s:\t t:\t m:");
-                for(int n = 100; n <= 10000; n +=100){
+                writer.println("n:\t a:\t s:\t t:\t m:");
+                int m = 50;
+                for(int n = 10; n <= 100000; n *=10){
                     for(int i =0; i < k; i++){
                         stats = chooseSort(type, order, genRandData(n));
                         writer.println(stats.toStringFF());
+                        stats = chooseSort(type, order, genRandData(m));
+                        writer.println(stats.toStringFF());
                     }
+                    m *= 10;
                 }
                 writer.close();              
             } catch(FileNotFoundException ex){
@@ -111,20 +114,11 @@ class Main{
         SortStatistics stats;
 
         switch(type){
-            case "insert":
-                sort = new InsertionSort();
-                break;
-            case "merge":
-                sort = new MergeSort();
-                break;
-            case "quick":
-                sort = new QuickSort();
-                break;
-            case "dpquick":
-                sort = new DualPivotQuickSort();
+            case "radix":
+                sort = new RadixSort();
                 break;
             default:
-                sort = new MergeSort();
+                sort = new RadixSort();
                 break;
         }
         stats = sort.sort(data, order);
@@ -139,10 +133,15 @@ class Main{
     private static int[] genRandData(int n){
         int[] data = new int[n];
         Random r = new Random();
-
-        for(int i = 0; i < n; i++){
-            data[i] = r.nextInt();
-        }
+        if( n < 45000)
+            for(int i = 0; i < n; i++){
+                data[i] = r.nextInt(n*n);
+            }
+        else
+            for(int i = 0; i < n; i++){
+                data[i] = r.nextInt(n);
+            }
+       
         return data;
     }
 }

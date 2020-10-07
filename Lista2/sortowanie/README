@@ -1,0 +1,22 @@
+	Aby uruchomić program z własnymi danymi do posortowania należy uruchomić go bez parametru --stat,
+następnie w pierwszej lini podajemy rozmiar danych <enter>, a w następnej dane oddzielone spacją <enter>.
+
+Przykładowe wywołanie z własnymi danymi:
+$java sortowanie.Main --type quick --comp '>='
+5		
+1 9 -7 8 12
+n: 5 c: 8 s: 9 t: 0.126973
+-7      1       8       9       12
+
+Program wyświetla informacje w formacie "n: c: s: t: ", gdzie:
+n - rozmiar danych
+c - liczba porównań
+s - liczba zamian
+t - czas sortowania w milisekundach
+
+<----Opracowane dane---->
+W plikach statDpQuick, statMerge oraz statQuick znajdują się statystyki
+dla dużych danych odpowiednio dla algorytmu Dual Pivot Quicksort,
+Merge Sort oraz Quicksort. Dane przedstawiają średnią liczbę porównań, zamian,
+a także średni czas wykonania algorytmu w zależności od rozmiaru danych.
+Dane opracowane na podstawie k = 1000 prob dla każdego n.

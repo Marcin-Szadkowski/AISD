@@ -1,0 +1,28 @@
+Przykładowe uruchomienie programu
+1:$java Main -p
+2:6 2
+
+Gdzie
+2: opowiednio rozmiar danych i k-ta statystyka pozycyjna
+W wyniku dostajemy:
+1:n: 6 c: 15 s: 22 k: 2
+2:n: 6 c: 14 s: 22 k: 2
+3:1       [2]     3       4       5       6
+gdzie
+1: wynik działania algorytmu Randomized Select
+2: wynik działania algorytmu Select
+3: tablica z zaznaczoną k-ta statystyka pozycyjną
+c - liczba porównań, s - liczba zamian, k-szukana statystyka
+
+-----------------------Opracowane statystyki-------------------
+W plikach ranSel.txt oraz sel.txt znajdują się wyniki działania algorytmów Randomized Select,
+oraz Select dla 100 prób. Na ich podstawie obliczyłem średnią liczbę porównań, zamian oraz odchylenie standardowe.
+
+Randomized Select:
+n	avg(c)	avg(s)	odch. stand.(c)	odch. stand.(s)
+100	272,178	156,944		87		76	
+
+Select:
+n	avg(c)	avg(s)	odch. stand.(c)	odch. stand.(s)
+100	373,124	397,348		23		32
+
